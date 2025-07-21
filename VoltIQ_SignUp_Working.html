@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VoltIQ Early Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #cccccc;
+      margin-bottom: 30px;
+    }
+    input[type="email"] {
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background: linear-gradient(90deg, #00ffcc, #ff00cc);
+      border: none;
+      padding: 14px 28px;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://cdn.openai.com/chat-assets/logo-voltIQ-temp.png" alt="VoltIQ Logo" class="logo" />
+    <h1>Get Early Access to VoltIQ</h1>
+    <p>Join the waitlist and be first to receive real-time crypto alerts.</p>
+    <form id="signup-form">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Join Waitlist</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const scriptURL = "https://script.google.com/macros/s/AKfycbyL9Ep_dNkYH3NRTbsWs6lT3k55U3K_iZ1EUy0cNvIcu3FgQOcU6btPJCNIRhMx7tzj/exec";
+      fetch(scriptURL, {
+        method: "POST",
+        body: new URLSearchParams({ "email": email })
+      })
+      .then(response => {
+        window.location.href = "https://voltIQ.ai/thankyou";
+      })
+      .catch(error => alert("Submission failed. Please try again."));
+    });
+  </script>
+</body>
+</html>
